@@ -16,7 +16,7 @@ const CollectionPreview = (props) => {
                         .map(item => {
                             return <CollectionItem
                                 key={item.id}
-                                {...item}
+                                item={item}
                                 />
                         })
                 }
