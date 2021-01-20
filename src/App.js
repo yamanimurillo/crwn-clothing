@@ -20,7 +20,7 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    const {setCurrentUser} = this.props;
+    const { setCurrentUser } = this.props;
 
     this.unsuscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
 
@@ -28,7 +28,7 @@ class App extends React.Component {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapshot => {
-          
+
           setCurrentUser({
             id: snapshot.id,
             ...snapshot.data()
@@ -50,7 +50,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Switch>
+        <Switch>  
           <Route exact path='/' component={HomePage} />
           <Route exact path='/shop' component={ShopPage} />
           <Route exact path='/login' component={LoginPage} />
@@ -70,4 +70,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null,mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
