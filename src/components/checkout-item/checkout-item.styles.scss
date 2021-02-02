@@ -23,7 +23,15 @@
     }
 
     .quantity {
-        padding-left: 20px;
+        
+        span {
+            padding: 10px;
+            cursor: pointer;
+
+            &:hover{
+                color:gray;
+            }
+        }
     }
 
     .remove-button {

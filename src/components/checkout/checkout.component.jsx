@@ -33,11 +33,13 @@ const CheckoutPage = ({ cartItems }) => {
             </div>
 
             {
-                cartItems.map(cartItem => {
+                cartItems.length ? 
+                cartItems.map(item => {
                     return (
-                        <CheckoutItem cartItem={cartItem} />
+                        <CheckoutItem cartItem={item} />
                     );
-                })
+                }) : 
+                <div class='empty-cart'>Your cart is empty</div>
             }
 
             <div className='total'>
