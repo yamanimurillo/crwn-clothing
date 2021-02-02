@@ -7,9 +7,16 @@ const selectCart = (state) => {
 export const selectCartItems = createSelector(
     [selectCart],
     (cart) => {
-        return cart.cartItems
+        return cart.cartItems;
     }
 );
+
+export const selectCartHidden = createSelector(
+    [selectCart],
+    (cart) => {
+        return cart.hidden;
+    }
+)
 
 export const selectCartItemsCount = createSelector(
     [selectCartItems],
