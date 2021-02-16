@@ -2,13 +2,15 @@ import React from 'react';
 
 import Directory from '../../components/directory/directory.component';
 
-import './homepage.styles.scss';
+import { HomePageContainer } from './homepage.styles';
 
 const HomePage = () => {
     return (
-        <div className='homepage'>
+        <HomePageContainer>
+            <h1>Welcome to Crown Clothing</h1>
+            <h4 style={{marginBottom:'80px', marginTop:'-15px'}}>Wear better, look better</h4>
             <Directory></Directory>
-        </div>
+        </HomePageContainer>
     );
 };
 
