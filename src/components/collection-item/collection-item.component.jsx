@@ -8,7 +8,8 @@ import './collection-item.styles.scss';
 
 const CollectionItem = ({ item, addItem }) => {
     const { name, price, imageUrl }= item;
-
+    window.scrollTo(0, 0);
+    
     return ( 
         <div className='collection-item'>
             <div className='image'

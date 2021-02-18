@@ -1,15 +1,17 @@
 import React from 'react';
 import CollectionItem from '../../components/collection-item/collection-item.component';
-
+import { withRouter } from 'react-router-dom';
 import './collection-preview.styles.scss';
+import {Link} from 'react-router-dom';
 
-const CollectionPreview = (props) => {
+const CollectionPreview = ({title, items, match}) => {
     return (
         <div className='collection-preview'>
-            <h1 className='title'>{props.title.toUpperCase()}</h1>
+            <h1 className='title'>{title.toUpperCase()}</h1>
+            <Link to={`${match.path}/${title.toLowerCase()}`} className='view-all'>View all</Link>
             <div className='preview'>
                 {
-                    props.items
+                    items
                         .filter((item, idx) => {
                             return idx <= 3;
                         })
@@ -17,7 +19,7 @@ const CollectionPreview = (props) => {
                             return <CollectionItem
                                 key={item.id}
                                 item={item}
-                                />
+                            />
                         })
                 }
             </div>
@@ -25,4 +27,4 @@ const CollectionPreview = (props) => {
     )
 };
 
-export default CollectionPreview; 
+export default withRouter(CollectionPreview); 

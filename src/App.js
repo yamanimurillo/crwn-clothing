@@ -12,6 +12,7 @@ import LoginPage from './pages/login/login.component';
 import CheckoutPage from './components/checkout/checkout.component';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
+import { selectCollectionsForPreview } from './redux/shop/shop.selectors';
 
 //CSS
 import './App.css';
@@ -40,6 +41,11 @@ class App extends React.Component {
       }
 
       setCurrentUser(userAuth);
+
+      // initializeCollectionAndDocuments('collections',
+      //   collections.map(({ title, items }) => {
+      //     return { title, items };
+      //   }));
     });
   }
 
@@ -52,11 +58,11 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Switch>  
+        <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
           <Route exact path='/checkout' component={CheckoutPage} />
-          <Route exact path='/login' render={() => this.props.currentUser ? <Redirect to='/'></Redirect>: <LoginPage></LoginPage> } />    
+          <Route exact path='/login' render={() => this.props.currentUser ? <Redirect to='/'></Redirect> : <LoginPage></LoginPage>} />
         </Switch>
       </div>
     );
@@ -67,7 +73,8 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.user.currentUser
+    currentUser: state.user.currentUser,
+    collections: selectCollectionsForPreview(state)
   }
 };
 

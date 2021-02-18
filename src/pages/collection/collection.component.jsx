@@ -7,9 +7,9 @@ import './collection.styles.scss';
 const CollectionPage = ({ collection }) => {
     return (
         <div className='collection-page'>
-            <h1 class='title'>{collection.title.toString().toUpperCase()}</h1>
+            <h1 className='title'>{collection.title.toString().toUpperCase()}</h1>
 
-            <div class='items'>
+            <div className='items'>
                 {
                     collection.items.map(i => {
                         return <CollectionItem

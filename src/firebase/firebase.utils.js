@@ -19,7 +19,7 @@ var loggedUser = false;
 export const auth = firebase.auth();
 export const firestore = firebase.firestore(app);
 export const createUserProfileDocument = async (userAuth, additionalData) => {
-    
+
     if (!userAuth) {
         return;
     }
@@ -43,10 +43,43 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         } catch (error) {
             alert('Error creating user: ' + error.message);
         }
-    } 
+    }
 
     return userRef;
 };
+
+export const initializeCollectionAndDocuments = async (collectionKey, objectsToAdd = []) => {
+    const collectionRef = firestore.collection(collectionKey);
+
+    const batch = firestore.batch();
+    objectsToAdd.forEach(obj => {
+        const newDocRef = collectionRef.doc();
+
+        batch.set(newDocRef, obj);
+        console.log(newDocRef);
+    });
+
+    return await batch.commit();
+};
+
+export const convertCollectionsSnapshotToMap = (collections) => {
+    const transformedCollection = collections.docs.map(doc => {
+        const { title, items } = doc.data();
+
+        return {
+            routeName: encodeURI(title),
+            id: doc.id,
+            title, 
+            items
+        }
+    });
+
+    return transformedCollection.reduce((accumulator, collection) => {
+        accumulator[collection.title.toLowerCase()] = collection;
+        return accumulator;
+    }, {} );
+
+ };
 
 export const isUserLogged = loggedUser;
 const provider = new firebase.auth.GoogleAuthProvider();

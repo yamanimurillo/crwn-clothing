@@ -1,16 +1,30 @@
 .collection-preview {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+
+  .title {
+    font-size: 26px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+
+  .preview {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
-  
-    .title {
-      font-size: 28px;
-      margin-bottom: 25px;
-    }
-  
-    .preview {
-      display: flex;
-      justify-content: space-between;
+    justify-content: space-between;
+  }
+
+  .view-all {
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    text-align: center;
+    display:block;
+    width: auto;
+    margin:0 auto;
+    margin-bottom: 28px;
+    &:hover {
+      text-decoration: underline;
     }
   }
-  
+}

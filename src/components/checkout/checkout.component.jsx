@@ -39,7 +39,7 @@ const CheckoutPage = ({ cartItems }) => {
                         <CheckoutItem key={item.id} cartItem={item} />
                     );
                 }) : 
-                <div class='empty-cart'>Your cart is empty</div>
+                <div className='empty-cart'>Your cart is empty</div>
             }
 
             <div className='total'>
