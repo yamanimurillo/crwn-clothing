@@ -1,3 +1,6 @@
+To see the live version of this project, you click on:
+https://crwn-live-yama.herokuapp.com/shop/hats
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
