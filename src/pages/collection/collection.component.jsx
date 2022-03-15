@@ -6,6 +6,7 @@ import './collection.styles.scss';
 
 const CollectionPage = ({ collection }) => {
     return (
+
         <div className='collection-page'>
             <h1 className='title'>{collection.title.toString().toUpperCase()}</h1>
 
@@ -20,6 +21,7 @@ const CollectionPage = ({ collection }) => {
                 }
             </div>
         </div>
+
     );
 };
 
